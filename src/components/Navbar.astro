@@ -1,0 +1,217 @@
+---
+---
+
+<header id="navbar">
+  <nav>
+    <a href="/" class="logo">
+      <span class="logo-mark">DC</span>
+      <span class="logo-text">DanielConstrucciones</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <a href="#contacto" class="nav-cta">Hablemos</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#proyectos" class="mob-link">Proyectos</a></li>
+      <li><a href="#nosotros" class="mob-link">Nosotros</a></li>
+      <li><a href="#contacto" class="mob-link">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+
+  header.scrolled {
+    background: rgba(13, 15, 17, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom-color: var(--color-border);
+  }
+
+  nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--color-accent);
+    color: #0d0f11;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    color: var(--color-text);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    margin-left: auto;
+  }
+
+  .nav-links a {
+    color: var(--color-muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--color-text); }
+
+  .nav-cta {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.25s, color 0.25s;
+    flex-shrink: 0;
+  }
+
+  .nav-cta:hover {
+    background: var(--color-accent);
+    color: #0d0f11;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--color-text);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.open span:first-child { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:last-child  { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    background: rgba(13, 15, 17, 0.97);
+    border-top: 1px solid var(--color-border);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 280px;
+    padding: 1.5rem 2rem 2rem;
+  }
+
+  .mobile-menu ul { list-style: none; }
+
+  .mobile-menu li { border-bottom: 1px solid var(--color-border); }
+
+  .mob-link {
+    display: block;
+    padding: 1rem 0;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu { display: block; }
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const hamburger = document.getElementById('hamburger')!;
+  const mobileMenu = document.getElementById('mobileMenu')!;
+
+  // Scroll behavior
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile toggle
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close on link click
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>

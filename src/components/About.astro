@@ -1,0 +1,235 @@
+---
+---
+
+<section class="about" id="nosotros">
+  <div class="container">
+
+    <!-- Split layout -->
+    <div class="about-grid">
+
+      <!-- Columna izquierda: Texto principal -->
+      <div class="about-left">
+        <div class="section-eyebrow reveal-left">
+          <span class="gold-line"></span>
+          <span>Sobre Nosotros</span>
+        </div>
+
+        <h2 class="about-title reveal-left">
+          Más de una<br />
+          década<br />
+          <em>construyendo</em><br />
+          confianza.
+        </h2>
+
+        <div class="about-divider reveal-left"></div>
+      </div>
+
+      <!-- Columna derecha: Descripción y valores -->
+      <div class="about-right">
+        <p class="about-lead reveal">
+          Somos una constructora pequeña dedicada a la mejora y seguridad de su hogar. 
+          Desde 2016, nos especializamos en fabricaciones metálicas y estructuras menores 
+          que combinan funcionalidad y estética.
+        </p>
+
+        <p class="about-body reveal">
+          Nuestro enfoque es la atención personalizada en cada proyecto, ya sea un portón moderno, 
+          rejas de seguridad o cobertizos a medida. Nos enorgullece entregar trabajos 
+          duraderos que protegen y valorizan su propiedad.
+        </p>
+
+        <!-- Valores -->
+        <div class="values reveal">
+          <div class="value-item">
+            <span class="value-num">01</span>
+            <div>
+              <h3 class="value-name">Precisión Técnica</h3>
+              <p class="value-desc">Cada detalle es calculado. Nada se deja al azar.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-num">02</span>
+            <div>
+              <h3 class="value-name">Compromiso Total</h3>
+              <p class="value-desc">Nos involucramos desde el primer plano hasta la última piedra.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-num">03</span>
+            <div>
+              <h3 class="value-name">Materiales de Origen</h3>
+              <p class="value-desc">Solo trabajamos con proveedores certificados de primer nivel.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Banner de imagen de fondo — reemplaza la URL con tu foto de equipo/obra -->
+    <div class="about-image reveal">
+      <img
+        src="/src/images/trabajo de costanereado.jpg"
+        alt="Nuestro equipo en obra"
+        loading="lazy"
+      />
+      <!-- Reemplaza con: src="/images/equipo.jpg" -->
+      <div class="image-caption">
+        <span>Equipo DanielConstrucciones · Trabajo de Estructura · 2024</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 8rem 0;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Grid 2 columnas */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 5rem;
+    margin-bottom: 5rem;
+    align-items: start;
+  }
+
+  /* Columna izquierda */
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+  }
+
+  .about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+  }
+
+  .about-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .about-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--color-accent), transparent);
+  }
+
+  /* Columna derecha */
+  .about-lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+    font-weight: 300;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-body {
+    font-size: 0.92rem;
+    color: var(--color-muted);
+    line-height: 1.9;
+    margin-bottom: 3rem;
+  }
+
+  /* Valores */
+  .values { display: flex; flex-direction: column; gap: 0; }
+
+  .value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .value-item:first-child { border-top: 1px solid var(--color-border); }
+
+  .value-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .value-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .value-desc {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  /* Imagen panorámica */
+  .about-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%;
+    aspect-ratio: 21/9;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.75) saturate(0.85);
+    transition: filter 0.5s;
+  }
+
+  .about-image:hover img { filter: brightness(0.85) saturate(0.95); }
+
+  .image-caption {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(232,228,221,0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-title {
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about { padding: 5rem 0; }
+    .container { padding: 0 1.25rem; }
+    .about-image img { aspect-ratio: 4/3; }
+  }
+</style>

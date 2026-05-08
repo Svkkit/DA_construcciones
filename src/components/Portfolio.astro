@@ -1,0 +1,341 @@
+---
+// ============================================================
+// CONFIGURACIÓN DEL PORTAFOLIO
+// Añade o elimina proyectos en este array.
+// Reemplaza las rutas de imagen con tus fotos reales.
+// ============================================================
+const projects = [
+  {
+    id: 1,
+    name: "Portón y Reja de Seguridad",
+    category: "Estructuras",
+    year: "2024",
+    image: "/src/images/porton lateral.jpg",
+    size: "large",
+  },
+  {
+    id: 2,
+    name: "Estructura de Techumbre",
+    category: "Estructuras",
+    year: "2023",
+    image: "/src/images/estructura cerchas y costaneras.jpg",
+    size: "normal",
+  },
+  {
+    id: 3,
+    name: "Protecciones Metálicas de Ventanas",
+    category: "Estructuras",
+    year: "2023",
+    image: "/src/images/trabajo de costanereado.jpg",
+    size: "normal",
+  },
+  {
+    id: 4,
+    name: "Cobertizo de Madera y Metal",
+    category: "Estructuras",
+    year: "2023",
+    image: "/src/images/vista general interior galpon.jpg",
+    size: "normal",
+  },
+  {
+    id: 5,
+    name: "Galpón de Almacenaje Hogar",
+    category: "Estructuras",
+    year: "2022",
+    image: "/src/images/galpon.png",
+    size: "large",
+  },
+  {
+    id: 6,
+    name: "Cierre Perimetral Reforzado",
+    category: "Estructuras",
+    year: "2022",
+    image: "/src/images/frontis oficina.jpg",
+    size: "normal",
+  },
+];
+---
+
+<section class="portfolio" id="proyectos">
+  <div class="container">
+
+    <!-- Header de sección -->
+    <div class="section-header">
+      <div class="section-eyebrow reveal">
+        <span class="gold-line"></span>
+        <span>Nuestro Trabajo</span>
+      </div>
+      <h2 class="section-title reveal">
+        Proyectos que<br /><em>hablan por sí solos</em>
+      </h2>
+      <p class="section-desc reveal">
+        Cada proyecto es el resultado de una planificación rigurosa,
+        materiales de primera calidad y un equipo comprometido con la excelencia.
+      </p>
+    </div>
+
+    <!-- Filtros de categoría -->
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="Estructuras">Estructuras</button>
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="projects-grid" id="projectsGrid">
+      {projects.map((project, index) => (
+        <article
+          class={`project-card reveal ${project.size === 'large' ? 'card-large' : ''}`}
+          data-category={project.category}
+          style={`transition-delay: ${0.05 * (index % 3)}s`}
+        >
+          <div class="card-image-wrap">
+            <img
+              src={project.image}
+              alt={`Proyecto: ${project.name}`}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- Overlay en hover -->
+          <div class="card-overlay">
+            <div class="overlay-content">
+              <span class="overlay-category">{project.category}</span>
+              <h3 class="overlay-name">{project.name}</h3>
+              <div class="overlay-footer">
+                <span class="overlay-year">{project.year}</span>
+                <span class="overlay-arrow">→</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: 7rem 0 8rem;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  .section-header {
+    margin-bottom: 3.5rem;
+    max-width: 680px;
+  }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 1.25rem;
+    transition-delay: 0s;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    transition-delay: 0.1s;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+    transition-delay: 0.2s;
+  }
+
+  /* Filtros */
+  .filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    transition-delay: 0.3s;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--color-border);
+    background: none;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.73rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(201, 169, 110, 0.07);
+  }
+
+  /* Grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Tarjeta */
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--color-surface);
+  }
+
+  .card-large {
+    grid-column: span 2;
+  }
+
+  .card-image-wrap {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .card-large .card-image-wrap {
+    aspect-ratio: 16/9;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Overlay */
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(13, 15, 17, 0.96) 0%,
+      rgba(13, 15, 17, 0.3) 60%,
+      rgba(13, 15, 17, 0) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .project-card:hover .card-overlay { opacity: 1; }
+  .project-card:hover img { transform: scale(1.06); }
+
+  .overlay-content { width: 100%; }
+
+  .overlay-category {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .overlay-name {
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .overlay-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .overlay-year {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .overlay-arrow {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    transform: translateX(0);
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover .overlay-arrow { transform: translateX(4px); }
+
+  /* Tarjetas ocultas por filtro */
+  .project-card.hidden {
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-large { grid-column: span 2; }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .card-large { grid-column: span 1; }
+    .card-large .card-image-wrap { aspect-ratio: 4/3; }
+    .card-overlay { opacity: 1; }  /* Siempre visible en mobile */
+    .portfolio { padding: 4rem 0 5rem; }
+    .container { padding: 0 1.25rem; }
+  }
+</style>
+
+<script>
+  // Filtrado de proyectos
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter ?? 'all';
+
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      cards.forEach(card => {
+        const cat = card.dataset.category ?? '';
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

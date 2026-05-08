@@ -1,0 +1,350 @@
+---
+---
+
+<section class="contact" id="contacto">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <!-- Info lateral -->
+      <div class="contact-info">
+        <div class="section-eyebrow reveal-left">
+          <span class="gold-line"></span>
+          <span>Contacto</span>
+        </div>
+
+        <h2 class="contact-title reveal-left">
+          Hablemos de<br />
+          <em>su proyecto.</em>
+        </h2>
+
+        <p class="contact-desc reveal-left">
+          Cuéntenos su idea. Nuestro equipo técnico
+          la evalúa y le presenta una propuesta en 48 horas.
+        </p>
+
+        <div class="contact-details reveal-left">
+          <div class="detail-item">
+            <span class="detail-label">Teléfono</span>
+            <span class="detail-value">+56 9 8813 6345</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Email</span>
+            <span class="detail-value">contacto@danielconstrucciones.cl</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="contact-form-wrap reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Juan García" required />
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Tu empresa (opcional)" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="juan@empresa.cl" required />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tipo">Tipo de proyecto *</label>
+            <div class="select-wrap">
+              <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="estructuras">Estructuras Metálicas</option>
+                <option value="otro">Otro</option>
+              </select>
+              <span class="select-arrow">↓</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Cuéntenos su proyecto *</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Descripción, ubicación, presupuesto estimado, plazos..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-footer">
+            <p class="form-note">* Campos obligatorios</p>
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-text">Enviar consulta</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+
+          <!-- Mensaje de éxito -->
+          <div class="success-msg" id="successMsg">
+            <span class="success-icon">✓</span>
+            <p>Mensaje enviado. Le responderemos en menos de 48 horas.</p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 8rem 0;
+    background: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  /* Info */
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .contact-desc {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .detail-item { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .detail-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .detail-value {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+
+  /* Formulario */
+  .contact-form-wrap {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 3rem;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  input, select, textarea {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 300;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+  }
+
+  input::placeholder, textarea::placeholder { color: #3f3f3f; }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--color-accent);
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  .select-wrap { position: relative; }
+
+  .select-arrow {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+
+  /* Footer del form */
+  .form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .form-note {
+    font-size: 0.7rem;
+    color: var(--color-muted);
+  }
+
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background: var(--color-accent);
+    color: #0d0f11;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .submit-btn:hover { background: #d4b47a; transform: translateY(-1px); }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .btn-arrow { font-size: 1rem; transition: transform 0.3s; }
+  .submit-btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* Mensaje éxito */
+  .success-msg {
+    display: none;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    background: rgba(201, 169, 110, 0.07);
+  }
+
+  .success-msg.show { display: flex; }
+
+  .success-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .success-msg p {
+    font-size: 0.85rem;
+    color: var(--color-text);
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  @media (max-width: 640px) {
+    .contact { padding: 5rem 0; }
+    .container { padding: 0 1.25rem; }
+    .contact-form-wrap { padding: 1.75rem 1.25rem; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const successMsg = document.getElementById('successMsg') as HTMLElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validación básica
+    const requiredFields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]');
+    let valid = true;
+
+    requiredFields.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#c0392b';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+
+    if (!valid) return;
+
+    // Simula envío (reemplaza con tu lógica de backend / Netlify Forms / FormSpree)
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-text')!.textContent = 'Enviando...';
+
+    await new Promise(resolve => setTimeout(resolve, 1200));
+
+    form.reset();
+    successMsg.classList.add('show');
+    submitBtn.disabled = false;
+    submitBtn.querySelector('.btn-text')!.textContent = 'Enviar consulta';
+  });
+</script>
