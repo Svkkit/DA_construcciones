@@ -11,8 +11,8 @@ Sitio web profesional para **DA_Construcciones**, empresa especializada en fabri
 ## 📸 Galería de Proyectos
 
 <div align="center">
-  <img src="src/images/galpon.png" alt="Proyecto Galpón" width="45%" />
-  <img src="src/images/porton lateral.jpg" alt="Portón de Seguridad" width="45%" />
+  <img src="public/images/galpon.png" alt="Proyecto Galpón" width="45%" />
+  <img src="public/images/porton lateral.jpg" alt="Portón de Seguridad" width="45%" />
 </div>
 
 > *Calidad, precisión y compromiso en cada estructura.*
