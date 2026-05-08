@@ -1,143 +1,88 @@
-# CONSTRUART — Sitio Web
+# 🏗️ DA_Construcciones
 
-Sitio web profesional para empresa constructora.  
-Stack: **Astro 4** · **Tailwind CSS** · **Animaciones CSS nativas (scroll reveal)**
+[![Astro](https://img.shields.io/badge/Astro-4.0+-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
----
-
-## 🚀 Instalación
-
-```bash
-npm install
-npm run dev
-```
-
-Visita `http://localhost:4321`
+Sitio web profesional para **DA_Construcciones**, empresa especializada en fabricaciones metálicas, estructuras menores y mejoras para el hogar. Un diseño moderno, minimalista y enfocado en resaltar la calidad del trabajo artesanal.
 
 ---
 
-## 📁 Estructura de archivos
+## 📸 Galería de Proyectos
 
-```
+<div align="center">
+  <img src="src/images/galpon.png" alt="Proyecto Galpón" width="45%" />
+  <img src="src/images/porton lateral.jpg" alt="Portón de Seguridad" width="45%" />
+</div>
+
+> *Calidad, precisión y compromiso en cada estructura.*
+
+---
+
+## ✨ Características Principales
+
+- ⚡ **Alto Rendimiento:** Construido con Astro 4 para una velocidad de carga excepcional.
+- 📱 **Diseño Responsivo:** Optimizado para móviles, tablets y computadoras.
+- 🎨 **Estética Premium:** Paleta de colores industrial (Dorado, Azul Acero, Carbón).
+- 🎞️ **Animaciones Fluidas:** Sistema de *scroll reveal* nativo para una experiencia interactiva.
+- 🛠️ **Portfolio Dinámico:** Galería filtrable por categorías y años.
+
+---
+
+## 🚀 Inicio Rápido
+
+Sigue estos pasos para ejecutar el proyecto localmente:
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/Svkkit/DA_construcciones.git
+   cd DA_construcciones
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Iniciar servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+   Abre [http://localhost:4321](http://localhost:4321) en tu navegador.
+
+---
+
+## 📂 Estructura del Proyecto
+
+```text
 src/
-├── layouts/
-│   └── Layout.astro          ← Base HTML, fuentes, estilos globales, scroll reveal
-├── pages/
-│   └── index.astro           ← Página principal
-└── components/
-    ├── Navbar.astro          ← Menú transparente → sólido al scroll
-    ├── Hero.astro            ← Sección hero pantalla completa
-    ├── Portfolio.astro       ← Galería de proyectos con filtros
-    ├── About.astro           ← Sección "Sobre Nosotros"
-    ├── Contact.astro         ← Formulario de contacto
-    └── Footer.astro          ← Pie de página
-public/
-└── images/                   ← ⬅ PON AQUÍ TUS FOTOS
-    ├── hero-bg.jpg
-    ├── proyecto1.jpg
-    ├── proyecto2.jpg
-    └── ...
+├── components/       # Componentes modulares (Hero, Navbar, Portfolio, etc.)
+├── images/           # Activos visuales y fotografías de proyectos
+├── layouts/          # Plantilla base y configuración de estilos globales
+└── pages/            # Rutas del sitio (index.astro)
 ```
 
 ---
 
-## 🖼️ Cómo agregar tus fotos
+## 🛠️ Tecnologías
 
-### 1. Imagen del Hero
-
-En `src/components/Hero.astro`, busca la línea:
-
-```astro
-<div class="hero-bg" style="background-image: url('https://...')">
-```
-
-Reemplaza la URL con:
-
-```astro
-<div class="hero-bg" style="background-image: url('/images/hero-bg.jpg')">
-```
-
-**Tamaño recomendado:** 1920×1080 px, JPG, ~400KB
+- **Framework:** [Astro](https://astro.build/)
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Fuentes:** Inter & Playfair Display (via Google Fonts)
+- **Iconos:** Lucide (disponible para expansión)
 
 ---
 
-### 2. Fotos de proyectos (Galería)
+## 📧 Contacto
 
-En `src/components/Portfolio.astro`, edita el array `projects`:
+Si tienes alguna duda sobre el proyecto o quieres saber más sobre **DA_Construcciones**:
 
-```astro
-const projects = [
-  {
-    id: 1,
-    name: "Nombre del proyecto",
-    category: "Residencial",   // o "Comercial" / "Industrial"
-    year: "2024",
-    image: "/images/proyecto1.jpg",  // ← tu ruta aquí
-    size: "large",  // "large" = ocupa 2 columnas | "normal" = 1 columna
-  },
-  // ... más proyectos
-];
-```
-
-**Tamaño recomendado por foto:** 800×600 px (4:3), JPG, ~150KB
+- **Ubicación:** Chile
+- **Especialidad:** Estructuras metálicas, portones, rejas y galpones.
+- **Desde:** 2016
 
 ---
 
-### 3. Foto del equipo (Sección "Sobre Nosotros")
-
-En `src/components/About.astro`, reemplaza:
-
-```astro
-src="https://images.unsplash.com/..."
-```
-
-Con:
-
-```astro
-src="/images/equipo.jpg"
-```
-
-**Tamaño recomendado:** 1400×600 px (21:9 panorámica), JPG
-
----
-
-## 🎨 Paleta de colores
-
-| Variable        | Valor     | Uso                    |
-|-----------------|-----------|------------------------|
-| `--color-bg`    | `#0d0f11` | Fondo principal        |
-| `--color-surface` | `#151719` | Tarjetas, secciones  |
-| `--color-accent` | `#c9a96e` | Dorado suave, CTAs    |
-| `--color-accent2` | `#3d6b8c` | Azul industrial       |
-| `--color-text`  | `#e8e4dd` | Texto principal        |
-| `--color-muted` | `#7a7873` | Texto secundario       |
-
-Para cambiar el color de acento, edita `--color-accent` en `src/layouts/Layout.astro`.
-
----
-
-## 📧 Integrar el formulario de contacto
-
-El formulario actualmente simula el envío. Para conectarlo a un servicio real:
-
-### Opción A — Netlify Forms
-Agrega `data-netlify="true"` al `<form>` en `Contact.astro`.
-
-### Opción B — Formspree
-```js
-// En el script de Contact.astro, reemplaza la línea del setTimeout por:
-const response = await fetch('https://formspree.io/f/TU_ID', {
-  method: 'POST',
-  body: new FormData(form),
-  headers: { 'Accept': 'application/json' }
-});
-```
-
----
-
-## 📱 Responsive
-
-El diseño es mobile-first. Breakpoints:
-- `< 640px` — Móvil
-- `640px – 960px` — Tablet
-- `> 960px` — Desktop
+<p align="center">
+  Desarrollado con ❤️ para DA_Construcciones
+</p>
