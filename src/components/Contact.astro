@@ -30,7 +30,7 @@
           </div>
           <div class="detail-item">
             <span class="detail-label">Email</span>
-            <span class="detail-value">contacto@danielconstrucciones.cl</span>
+            <span class="detail-value">daconstrucciones2275@gmail.com</span>
           </div>
         </div>
       </div>
@@ -336,15 +336,41 @@
 
     if (!valid) return;
 
-    // Simula envío (reemplaza con tu lógica de backend / Netlify Forms / FormSpree)
+    // Envío real a Formspree
     submitBtn.disabled = true;
+    const originalBtnText = submitBtn.querySelector('.btn-text')!.textContent;
     submitBtn.querySelector('.btn-text')!.textContent = 'Enviando...';
 
-    await new Promise(resolve => setTimeout(resolve, 1200));
+    try {
+      const formData = new FormData(form);
+      const response = await fetch('https://formspree.io/f/mjvnrqdr', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
 
-    form.reset();
-    successMsg.classList.add('show');
-    submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-text')!.textContent = 'Enviar consulta';
+      if (response.ok) {
+        form.reset();
+        successMsg.classList.add('show');
+        // Ocultar mensaje de éxito después de 5 segundos
+        setTimeout(() => {
+          successMsg.classList.remove('show');
+        }, 5000);
+      } else {
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          alert(data["errors"].map((error: any) => error["message"]).join(", "));
+        } else {
+          alert("Oops! Hubo un problema al enviar el formulario");
+        }
+      }
+    } catch (error) {
+      alert("Oops! Hubo un problema al enviar el formulario");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-text')!.textContent = originalBtnText;
+    }
   });
 </script>
